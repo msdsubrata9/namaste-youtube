@@ -5,8 +5,6 @@ import SearchResultCard from "./SearchResultCard";
 function SearchResults() {
   const [searchResults, setSearchResults] = useState([]);
   const [searchParams] = useSearchParams();
-  console.log(searchResults);
-  console.log(searchParams.get("query"));
 
   async function getSearchQueryResults() {
     const data = await fetch(
