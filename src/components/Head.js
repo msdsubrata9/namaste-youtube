@@ -25,7 +25,13 @@ function Head() {
           alt="menu"
           src={MENU_IMAGE_URL}
         />
-        <img className="h-10" alt="youtube-logo" src={YOUTUBE_LOGO_URL} />
+        <a href="/">
+          <img
+            className="h-10 cursor-pointer"
+            alt="youtube-logo"
+            src={YOUTUBE_LOGO_URL}
+          />
+        </a>
       </div>
       <div className="col-span-10 px-10">
         <SearchBar />

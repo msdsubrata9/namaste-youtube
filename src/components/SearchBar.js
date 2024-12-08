@@ -5,6 +5,12 @@ function SearchBar() {
   const [searchQuery, setSearchQuery] = useState("");
   const [showSuggestion, setShowSuggestion] = useState(false);
   const suggessions = useSearchQuery(searchQuery);
+  function handleBlur() {
+    setTimeout(() => {
+      setShowSuggestion(false);
+    }, 300);
+  }
+
   return (
     <div>
       <input
@@ -13,7 +19,7 @@ function SearchBar() {
           setSearchQuery(e.target.value);
         }}
         onFocus={() => setShowSuggestion(true)}
-        onBlur={() => setShowSuggestion(false)}
+        onBlur={handleBlur}
         className="w-1/2 border border-gray-400 px-4 p-2 rounded-l-full"
         type="text"
       />
@@ -28,7 +34,9 @@ function SearchBar() {
                 key={suggestion}
                 className="px-4 my-2 hover:bg-gray-100 cursor-pointer"
               >
-                🔍 {suggestion}
+                <a href={`/results?query=${encodeURIComponent(suggestion)}`}>
+                  🔍 {suggestion}
+                </a>
               </li>
             ))}
           </ul>
