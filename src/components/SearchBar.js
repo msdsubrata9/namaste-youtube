@@ -23,9 +23,11 @@ function SearchBar() {
         className="w-1/2 border border-gray-400 px-4 p-2 rounded-l-full"
         type="text"
       />
-      <button className="border border-gray-400 p-2 rounded-r-full bg-gray-100">
-        Search
-      </button>
+      <a href={`/results?query=${encodeURIComponent(searchQuery)}`}>
+        <button className="border border-gray-400 p-2 rounded-r-full bg-gray-100">
+          Search
+        </button>
+      </a>
       {showSuggestion && (
         <div className="absolute bg-white w-1/3 border border-gray-100 shadow-lg rounded-lg">
           <ul>
